@@ -18,12 +18,10 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
-    "@syncfusion/ej2-angular-grids": "^20.4.51",
-    "@syncfusion/ej2-base": "^20.4.51",
+    "bootstrap": "^5.2.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.12.0",
-    "@syncfusion/ej2-material-theme": "~20.4.51"
+    "zone.js": "~0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.1.3",
