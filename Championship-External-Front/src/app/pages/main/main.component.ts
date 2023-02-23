@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { LoginResponse } from "src/app/models/login.response";
+import { AuthService } from "src/app/services/auth/auth.service";
 
 @Component({
     selector: 'MainPage',
@@ -6,4 +8,15 @@ import { Component } from "@angular/core";
     styleUrls: ['./main.component.css']
 })
 
-export class MainPage { }
+export class MainPage implements OnInit { 
+    
+    constructor(private authService : AuthService) { }
+
+    ngOnInit(): void {
+        //this.authentication();
+    }
+
+    authentication() {
+        this.authService.login();
+    }
+}
