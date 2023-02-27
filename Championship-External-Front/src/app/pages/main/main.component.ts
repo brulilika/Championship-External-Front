@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { LoginResponse } from "src/app/models/login.response";
-import { AuthService } from "src/app/services/auth/auth.service";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
     selector: 'MainPage',

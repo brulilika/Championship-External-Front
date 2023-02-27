@@ -8,6 +8,7 @@ import { ChampionshipPage } from './pages/championship/championship.component';
 import { MainPage } from './pages/main/main.component';
 import { TicketPage } from './pages/ticket/ticket.component';
 import { AppRoutingModule } from './utils/app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent, Navbar,
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './utils/app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

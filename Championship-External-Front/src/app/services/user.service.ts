@@ -1,8 +1,6 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, retry, throwError } from 'rxjs';
-import { LoginResponse } from 'src/app/models/login.response';
-import { UserRegisterResponse } from 'src/app/models/userRegister.response';
+import { catchError, Observable, retry } from 'rxjs';
 import { UpdateUserRequest } from '../models/updateUser.request';
 import { UserResponse } from '../models/user.response';
 import { handleError } from '../utils/handleErrors';
@@ -36,7 +34,7 @@ export class AuthService {
         .pipe(retry(2),catchError(handleError))
     }
 
-    //UYpdate Specific User
+    //Update Specific User
     updateUser(updatedUsed:UpdateUserRequest) : Observable<UserResponse> {
         return this.httpClient.put<UserResponse>(`${this.url}`, JSON.stringify({updatedUsed})
         ,this.httpOptions)
