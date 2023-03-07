@@ -18,35 +18,35 @@ export class ChampionshipPage{
             ChampionshipDate: "20/03/2023"
         },
         {
-            Id:"1",
+            Id:"2",
             ChampionshipImgSrc: "assets/Championship-Images/basketballdunk.png",
             ChampionshipTitle: "champ 2",
             ChampionshipDescription: "Descricao champ 2",
             ChampionshipDate: "20/03/2023"
         },
         {
-            Id:"1",
+            Id:"3",
             ChampionshipImgSrc: "assets/Championship-Images/bypass.png",
             ChampionshipTitle: "champ 3",
             ChampionshipDescription: "Descricao champ 3",
             ChampionshipDate: "20/03/2023"
         },
         {
-            Id:"1",
+            Id:"4",
             ChampionshipImgSrc: "assets/Championship-Images/football_trail.png",
             ChampionshipTitle: "champ 4",
             ChampionshipDescription: "Descricao champ 4",
             ChampionshipDate: "20/03/2023"
         },
         {
-            Id:"1",
+            Id:"5",
             ChampionshipImgSrc: "assets/Championship-Images/footballkick.png",
             ChampionshipTitle: "champ 5",
             ChampionshipDescription: "Descricao champ 5",
             ChampionshipDate: "20/03/2023"
         },
         {
-            Id:"1",
+            Id:"6",
             ChampionshipImgSrc: "assets/Championship-Images/voleyball-ball.png",
             ChampionshipTitle: "champ 6",
             ChampionshipDescription: "Descricao champ 6",
@@ -54,7 +54,7 @@ export class ChampionshipPage{
         },
 
         {
-            Id:"1",
+            Id:"7",
             ChampionshipImgSrc: "assets/Championship-Images/joystick.png",
             ChampionshipTitle: "champ 7",
             ChampionshipDescription: "Descricao champ 7",

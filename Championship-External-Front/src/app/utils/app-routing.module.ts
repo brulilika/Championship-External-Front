@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ChampionshipPage } from "../pages/championship/championship.component";
+import { ChampionshipDetailPage } from "../pages/championship/detail/championship-detail.component";
 import { MainPage } from "../pages/main/main.component";
 import { TicketPage } from "../pages/ticket/ticket.component";
 
@@ -9,6 +10,7 @@ const routes: Routes =[
   { path: "main", component: MainPage },
   { path: "championship", component: ChampionshipPage },
   { path: "ticket", component: TicketPage },
+  { path: "championship-detail/:id", component: ChampionshipDetailPage },
 ];
 
 @NgModule({

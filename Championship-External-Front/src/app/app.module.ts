@@ -16,10 +16,16 @@ import { NgIconsModule } from '@ng-icons/core';
 import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroTicket, heroUsers } from '@ng-icons/heroicons/outline';
 import { ChampcardComponent } from './components/champcard/champcard.component';
+import { ChampionshipDetailPage } from './pages/championship/detail/championship-detail.component';
 @NgModule({
     declarations: [
-        AppComponent, Navbar,
-        TicketPage, ChampionshipPage, MainPage, ChampcardComponent
+        AppComponent,
+        Navbar,
+        TicketPage, 
+        ChampionshipPage,
+         MainPage, 
+         ChampcardComponent,
+         ChampionshipDetailPage
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -33,6 +39,7 @@ import { ChampcardComponent } from './components/champcard/champcard.component';
         DashCarousel,
         MainCard,
         TicketCard
+        
     ]
 })
 export class AppModule { }
