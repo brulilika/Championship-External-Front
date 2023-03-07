@@ -1,4 +1,7 @@
 export type AllChampionshipResponse = {
     Id : string,
-    Name : string,
+    ChampionshipImgSrc: string,
+    ChampionshipTitle: string,
+    ChampionshipDescription: string,
+    ChampionshipDate: string
 }

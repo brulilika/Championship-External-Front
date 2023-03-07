@@ -15,10 +15,11 @@ import { TicketCard } from './components/ticketcard/ticket.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroTicket, heroUsers } from '@ng-icons/heroicons/outline';
+import { ChampcardComponent } from './components/champcard/champcard.component';
 @NgModule({
     declarations: [
         AppComponent, Navbar,
-        TicketPage, ChampionshipPage, MainPage
+        TicketPage, ChampionshipPage, MainPage, ChampcardComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

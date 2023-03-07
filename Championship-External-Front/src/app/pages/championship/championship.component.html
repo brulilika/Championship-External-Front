@@ -1,17 +1,5 @@
 <div class="page">
     <div style="display: flex; justify-content:space-around;">
-        <main-card></main-card>
-        <main-card></main-card>
-        <main-card></main-card>
-    </div>
-    <div style="display: flex; justify-content:space-around;">
-        <main-card></main-card>
-        <main-card></main-card>
-        <main-card></main-card>
-    </div>
-    <div style="display: flex; justify-content:space-around;">
-        <main-card></main-card>
-        <main-card></main-card>
-        <main-card></main-card>
+        <champ-card *ngFor="let championship of championships" [championship]="championship"></champ-card>
     </div>
 </div>
