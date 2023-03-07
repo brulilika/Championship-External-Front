@@ -1,0 +1,23 @@
+.background-card{
+    width: 200px;
+    height: 350px; 
+    background-color:cadetblue; 
+    border-radius: 10px; 
+    border-color: black;
+    border-width: 2px;
+    margin: 20px; 
+    padding: 15px;
+}
+
+.ticket-logo{
+    width: 170px;
+    height: 150px; 
+    align-items: center;
+    background-color:white; 
+    object-fit: contain;
+}
+
+.progress-bar{
+    margin-top: 10px;
+    background-color:white; 
+}

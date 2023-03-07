@@ -8,9 +8,12 @@ import { ChampionshipPage } from './pages/championship/championship.component';
 import { MainPage } from './pages/main/main.component';
 import { TicketPage } from './pages/ticket/ticket.component';
 import { AppRoutingModule } from './utils/app-routing.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbProgressbar } from '@ng-bootstrap/ng-bootstrap';
 import { DashCarousel } from "./components/carosel/carosel.component";
 import { MainCard } from "./components/maincard/maincard.component";
+import { TicketCard } from './components/ticketcard/ticket.component';
+import { NgIconsModule } from '@ng-icons/core';
+import { featherAirplay } from '@ng-icons/feather-icons';
 @NgModule({
     declarations: [
         AppComponent, Navbar,
@@ -20,11 +23,14 @@ import { MainCard } from "./components/maincard/maincard.component";
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
+        NgIconsModule.withIcons({ featherAirplay }),
         AppRoutingModule,
         HttpClientModule,
-        NgbModule,
+        NgbProgressbar,
+        NgbAlertModule,
         DashCarousel,
-        MainCard
+        MainCard,
+        TicketCard
     ]
 })
 export class AppModule { }

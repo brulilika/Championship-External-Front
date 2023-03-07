@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 	selector: 'dash-carosel',
 	standalone: true,
 	imports: [NgbCarouselModule, NgFor, FormsModule],
+	styleUrls:  ['./carosel.component.css'],
 	templateUrl: './carosel.component.html',
 })
 export class DashCarousel {

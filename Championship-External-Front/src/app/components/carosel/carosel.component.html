@@ -7,8 +7,8 @@
 	(slide)="onSlide($event)"
 >
 	<ng-template ngbSlide *ngFor="let img of images; index as i">
-		<a class="carousel" >
-            <img style="width: 100%;" [src]="img" alt="My image {{i + 1}} description" />
+		<a>
+            <img class="carousel-img" [src]="img" alt="My image {{i + 1}} description" />
 		</a>
 	</ng-template>
 </ngb-carousel>
