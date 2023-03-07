@@ -14,6 +14,7 @@ import { MainCard } from "./components/maincard/maincard.component";
 import { TicketCard } from './components/ticketcard/ticket.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { featherAirplay } from '@ng-icons/feather-icons';
+import { heroTicket, heroUsers } from '@ng-icons/heroicons/outline';
 @NgModule({
     declarations: [
         AppComponent, Navbar,
@@ -23,7 +24,7 @@ import { featherAirplay } from '@ng-icons/feather-icons';
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
-        NgIconsModule.withIcons({ featherAirplay }),
+        NgIconsModule.withIcons({ featherAirplay , heroTicket}),
         AppRoutingModule,
         HttpClientModule,
         NgbProgressbar,

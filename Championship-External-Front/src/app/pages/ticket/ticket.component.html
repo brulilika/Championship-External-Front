@@ -1,9 +1,6 @@
-<div>
-    <div style="display: flex; justify-content:space-around;">
-        <ticket-card></ticket-card>
-        <ticket-card></ticket-card>
-        <ticket-card></ticket-card>
-        <ticket-card></ticket-card>
-        <ticket-card></ticket-card>
+<div class="page">
+    <div class="ticket-cards">
+        <ticket-card *ngFor="let item of items" [item]="item"></ticket-card>
     </div>
 </div>
+

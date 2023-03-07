@@ -1,7 +1,10 @@
 <div class="background-card">
     <div class="ticket-logo">
+        <ng-icon name="heroTicket" size="150"></ng-icon>
     </div>
-    <h3>Nome do Champ</h3>
-    <span>Uma descricao sobre o champ aquii uau</span>
-    <p><ngb-progressbar class="progress-bar" type="success" textType="white" [value]="25" [showValue]="true"></ngb-progressbar></p>
+    <h3> <ng-content></ng-content> {{item.ChampionshipTitle }}</h3>
+    <span>{{item.ChampionshipDescription}}</span>
+    <p>
+        <ngb-progressbar class="progress-bar" type="success" textType="white" [value]="item.SoldPercentage" [showValue]="true"></ngb-progressbar>
+    </p>
 </div>
