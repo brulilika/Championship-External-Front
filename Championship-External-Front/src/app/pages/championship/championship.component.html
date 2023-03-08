@@ -1,5 +1,5 @@
-<div class="page">
-    <div style="display: flex; justify-content:space-around;">
-        <champ-card *ngFor="let championship of championships" [championship]="championship"></champ-card>
+<div>
+    <div fxLayout="row wrap" fxLayoutGap="40px grid">
+        <champ-card class="championship-card" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let championship of championships" [championship]="championship"></champ-card>
     </div>
 </div> 

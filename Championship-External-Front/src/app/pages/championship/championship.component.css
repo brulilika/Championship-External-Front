@@ -1,8 +1,7 @@
 .page{
     margin: 0;
     padding: 0;
-    overflow: scroll;
 }
-.ticket-cards{
-    display: flex;
+.championship-card{
+    margin: 30px;
 }

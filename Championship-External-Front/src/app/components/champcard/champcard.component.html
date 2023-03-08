@@ -1,6 +1,7 @@
-<div class="background-card" (click)="goToDetail(championship.Id)">
+<div class="background-card">
     <img class="card-image" alt [src]="championship.ChampionshipImgSrc"/>
     <h3> <ng-content></ng-content> {{championship.ChampionshipTitle}}</h3>
     <span>{{championship.ChampionshipDescription}}</span>
     <p>{{championship.ChampionshipDate}}</p>
+    
 </div>

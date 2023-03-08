@@ -17,11 +17,11 @@ import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroTicket } from '@ng-icons/heroicons/outline';
 import { ChampcardComponent } from './components/champcard/champcard.component';
 import { ChampionshipDetailPage } from './pages/championship/detail/championship-detail.component';
-
 import { TableMatch } from './components/table/matchtable.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialExampleModule } from 'material.module';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
     declarations: [
         AppComponent,
@@ -48,7 +48,8 @@ import { MatNativeDateModule } from '@angular/material/core';
         TicketCard,
         BrowserAnimationsModule,
         MaterialExampleModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        FlexLayoutModule
     ]
 })
 export class AppModule { }
