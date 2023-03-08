@@ -16,6 +16,7 @@ import { NgIconsModule } from '@ng-icons/core';
 import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroTicket, heroUsers } from '@ng-icons/heroicons/outline';
 import { ChampcardComponent } from './components/champcard/champcard.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
     declarations: [
         AppComponent, Navbar,
@@ -32,7 +33,8 @@ import { ChampcardComponent } from './components/champcard/champcard.component';
         NgbAlertModule,
         DashCarousel,
         MainCard,
-        TicketCard
+        TicketCard,
+        FlexLayoutModule
     ]
 })
 export class AppModule { }
