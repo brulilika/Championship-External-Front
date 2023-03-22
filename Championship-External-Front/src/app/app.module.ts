@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialExampleModule } from 'material.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ChampionshiopService } from './services/championship.service';
+import { RankingCard } from './components/rankingcard/rankingcard.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -33,7 +35,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         ChampionshipDetailPage,
         TableMatch
     ],
-    providers: [],
+    providers: [ChampionshiopService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
@@ -46,6 +48,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         DashCarousel,
         MainCard,
         TicketCard,
+        RankingCard,
         BrowserAnimationsModule,
         MaterialExampleModule,
         MatNativeDateModule,

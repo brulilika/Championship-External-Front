@@ -4,11 +4,30 @@
         <h2>
             Competição {{id}}
         </h2>
+        <div style="display: flex; padding: 10px;">
+            <img style="height: 250px; width: 300px" src="{{imgSrc}}"/>
+            <div>
+                <h3>Descrição da competição</h3>
+                <p>{{description}}</p>
+
+                <h3>Data de início</h3>
+                <p>{{initialDate}}</p>
+
+                <h3>Data de finalização</h3>
+                <p>{{endDate}}</p>
+
+                <h3>Incrições</h3>
+                <p>{{subscribed}}</p>
+            </div>
+        </div>
     </div>
     <hr/>
     <!--Racking-->
     <div>
         <h2>Ranking Atualizado</h2>
+        <div>
+            <ranking-card class="championship-card" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let team of teamRanking" [team]="team" ></ranking-card>
+        </div>
     </div>
     <hr/>
     <!--Match-->
@@ -20,9 +39,7 @@
                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
                     officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
                     moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-                    keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                    vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                    heard of them accusamus labore sustainable VHS.
+                    keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                 </ng-template>
             </ngb-panel>
             <ngb-panel title="Fase 2">
