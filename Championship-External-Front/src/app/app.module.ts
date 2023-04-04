@@ -24,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChampionshiopService } from './services/championship.service';
 import { RankingCard } from './components/rankingcard/rankingcard.component';
+import { LoginPage } from './pages/login/login.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -31,6 +32,7 @@ import { RankingCard } from './components/rankingcard/rankingcard.component';
         TicketPage, 
         ChampionshipPage,
         MainPage, 
+        LoginPage,
         ChampcardComponent,
         ChampionshipDetailPage,
         TableMatch

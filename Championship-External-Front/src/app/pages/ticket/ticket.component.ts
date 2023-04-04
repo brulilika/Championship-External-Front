@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { TicketBuyModal } from "src/app/components/ticketbuymodal/ticketbuymodal.component";
 import { AllTicket } from "src/app/models/allTicket.response";
 
 @Component({
@@ -10,40 +12,46 @@ import { AllTicket } from "src/app/models/allTicket.response";
 export class TicketPage {
     items: AllTicket[] = [
         {
-            ChampionshipTitle: "Ticket 1",
-            ChampionshipDescription: "Descricao ticket 1",
+            ChampionshipTitle: "Competição 1",
+            ChampionshipDescription: "Descricao competição 1",
             SoldPercentage: 45
         },
         {
-            ChampionshipTitle: "Ticket 2",
-            ChampionshipDescription: "Descricao ticket 2",
+            ChampionshipTitle: "Competição 2",
+            ChampionshipDescription: "Descricao competição 2",
             SoldPercentage: 35
         },
         {
-            ChampionshipTitle: "Ticket 3",
-            ChampionshipDescription: "Descricao ticket 3",
+            ChampionshipTitle: "Competição 3",
+            ChampionshipDescription: "Descricao competição 3",
             SoldPercentage: 75
         },
         {
-            ChampionshipTitle: "Ticket 3",
-            ChampionshipDescription: "Descricao ticket 3",
+            ChampionshipTitle: "Competição 4",
+            ChampionshipDescription: "Descricao competição 4",
             SoldPercentage: 75
         },
         {
-            ChampionshipTitle: "Ticket 3",
-            ChampionshipDescription: "Descricao ticket 3",
+            ChampionshipTitle: "Competição 3",
+            ChampionshipDescription: "Descricao competição 5",
             SoldPercentage: 75
         },
         {
-            ChampionshipTitle: "Ticket 3",
-            ChampionshipDescription: "Descricao ticket 3",
+            ChampionshipTitle: "Competição 5",
+            ChampionshipDescription: "Descricao competição 6",
             SoldPercentage: 75
         },
 
         {
-            ChampionshipTitle: "Ticket 3",
-            ChampionshipDescription: "Descricao ticket 3",
+            ChampionshipTitle: "Competição 6",
+            ChampionshipDescription: "Descricao competição 6",
             SoldPercentage: 75
         },
-      ]
+    ]
+
+    constructor(private modalService: NgbModal) {}
+
+    openModal() {
+        this.modalService.open(TicketBuyModal);
+    }
 }

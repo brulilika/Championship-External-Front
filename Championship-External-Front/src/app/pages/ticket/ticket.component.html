@@ -1,6 +1,6 @@
 <div class="page">
     <div div fxLayout="row wrap" fxLayoutGap="40px grid">
-        <ticket-card class="ticket-card" fxFlex="16%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let item of items" [item]="item"></ticket-card>
+        <ticket-card (click)="openModal()" class="ticket-card" fxFlex="16%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let item of items" [item]="item"></ticket-card>
     </div>
 </div>
 
