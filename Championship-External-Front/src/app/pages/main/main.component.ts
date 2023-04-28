@@ -16,7 +16,4 @@ export class MainPage implements OnInit {
         //this.authentication();
     }
 
-    authentication() {
-        this.authService.login();
-    }
 }

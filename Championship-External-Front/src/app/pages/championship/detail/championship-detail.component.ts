@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { ChampionshiopService } from "src/app/services/championship.service";
+import {ChampionshipDetailResponse} from "src/app/models/championshipDetail.response"
 
 @Component({
     selector: 'championship-detail-page',
@@ -17,23 +18,27 @@ export class ChampionshipDetailPage{
     endDate!: string;
     subscribed!: string;
     teamRanking!: string[];
+    title!: string;
 
     constructor(private router: ActivatedRoute, private championshipService:ChampionshiopService) {
+        this.router.paramMap.subscribe(async (params: ParamMap) => {
+            this.id = params.get('id')?? "";
+        });
         
     }
 
-    ngOnInit(): void {
-        this.router.paramMap.subscribe((params: ParamMap) => {
-            this.id = params.get('id')?? "";
-        });
-
-        var response = this.championshipService.getById(this.id)
-        this.imgSrc = response.imgSrc;
-        this.description = response.description;
-        this.initialDate = response.initialDate;
-        this.endDate = response.endDate;
-        this.subscribed = response.subscribed;
-
+    async ngOnInit(): Promise<void> {
+        
+        // this.router.paramMap.subscribe(async (params: ParamMap) => {
+        //     this.id = params.get('id')?? "";
+        // });
+        await this.loadData()
         this.teamRanking = ["TIME A", "TIME B", "TIME C", "TIME D", "TIME E","TIME F"];
+    }
+
+    async loadData(){
+        var response : ChampionshipDetailResponse = await this.championshipService.getById(this.id)
+        this.title = response.title;
+        console.log(this.title )
     }
 }

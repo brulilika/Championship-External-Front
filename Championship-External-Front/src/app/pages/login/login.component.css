@@ -1,17 +1,58 @@
 .page{
     margin: 0;
     padding: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-image: url("./../../../assets/backgroundlogin.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .login-card{
-    background-color:cadetblue; 
+    background-color:rgba(111, 191, 194, 0.694); 
     height: 400px; 
     width: 350px; 
     border-radius: 10px;
+}
+
+.icon-login{
+    height: 90px; 
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+input{
+    display: block;
+    height: 40px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.767);
+    border-radius: 5px;
+    border-color: rgba(255, 255, 255, 0.767);;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+button{
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: #ffffff9f;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
 }

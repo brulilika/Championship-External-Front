@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
 	selector: 'main-card',
@@ -8,5 +8,14 @@ import { Component } from "@angular/core";
 	templateUrl: './maincard.component.html',
 })
 export class MainCard {
-    
+    @Input()
+	imgSrc!: string;
+	@Input()
+	title!: string;
+	@Input()
+	description!: string;
+
+	ngOnInit(){
+		
+	}
 }

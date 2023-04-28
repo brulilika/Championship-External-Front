@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Component} from "@angular/core";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
     selector: 'LoginPage',
@@ -9,11 +10,16 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 export class LoginPage {
     login: string = "";
     password: string = "";
+
+    constructor(private authService : AuthService) {
+        
+    }
     
-    onSubmit() {
+    async onSubmit() {
         this.login = (<HTMLInputElement>document.getElementById("login")).value;
         this.password = (<HTMLInputElement>document.getElementById("password")).value;
-        console.log(this.login + " "+this.password)
+        var resp = await this.authService.login(this.login, this.password)
+        console.log(resp)
     }
     
 }

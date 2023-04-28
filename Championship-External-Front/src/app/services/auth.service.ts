@@ -12,7 +12,7 @@ import { handleError } from '../utils/handleErrors';
 export class AuthService {
 
   url = 'https://champscoreapi.azurewebsites.net/api/user/';
-  
+  //url = 'http://192.168.0.12:7232/api/user/';
   constructor(private httpClient: HttpClient) { }
   
   httpOptions = {
@@ -20,13 +20,17 @@ export class AuthService {
   }
   
   //Authenticate user
-  login() {
+  login(email: string, password: string) {
       this.httpClient.post<LoginResponse>(`${this.url}login`, JSON.stringify({
-          email: "brunalika@msn.com",
-          password: "123456"
+          email: email,
+          password: password
       }), this.httpOptions).toPromise()?.then(response=>{
           localStorage.setItem("auth", response?.token??"")
-      })        
+      }).catch(()=>{
+        localStorage.setItem("auth","")
+        console.log("Erro ao buscar usuário")
+      })
+      return true;    
   }
 
   //Register NewUser

@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 	templateUrl: './carosel.component.html',
 })
 export class DashCarousel {
-	images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
+	images = ["ginastica.jpeg", "basquete.png", "fute.jpeg", "valorant.jpeg", "volei.jpeg"]
 
 	paused = false;
 	unpauseOnArrow = false;

@@ -1,6 +1,6 @@
-<div class="background-card" (click)="goToDetail(championship.Id)">
-    <img class="card-image" alt [src]="championship.ChampionshipImgSrc"/>
-    <h3> <ng-content></ng-content> {{championship.ChampionshipTitle}}</h3>
-    <span>{{championship.ChampionshipDescription}}</span>
-    <p>{{championship.ChampionshipDate}}</p>
+<div class="background-card" (click)="goToDetail(championship.id)">
+    <img class="card-image" alt src="./../../../assets/competition-icon.png"/>
+    <h3> <ng-content></ng-content> {{championship.title}}</h3>
+    <span>{{championship.description}}</span>
+    <p>{{championship.startDate}}</p>
 </div>
