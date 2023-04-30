@@ -18,7 +18,7 @@ export class TicketService {
     httpOptions = {
         headers: new HttpHeaders({ 
             'Content-Type': 'application/json',
-            'Authentication' : `Bearer ${localStorage.getItem("auth")}`
+            'Authorization' : `Bearer ${localStorage.getItem("auth")}`
         })
     }
   
@@ -32,10 +32,9 @@ export class TicketService {
         .pipe(retry(2),catchError(handleError))      
     }
 
-    //Buy ticket for an specific championship
-    buyTicket(id:string) : Observable<object> {
-        return this.httpClient.delete(`${this.url}/${id}`, this.httpOptions)
-        .pipe(retry(2),catchError(handleError))
+    //Buy ticket for an specific matchz
+    buyTicket(idMatch:string){
+        return this.httpClient.post(`${this.url}api/ticket`,{idMatch},this.httpOptions)
     }
 
 }
