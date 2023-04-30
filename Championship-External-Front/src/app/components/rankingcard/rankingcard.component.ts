@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { Ranking } from "src/app/models/ranking.response";
 
 @Component({
 	selector: 'ranking-card',
@@ -7,9 +8,12 @@ import { Component, Input } from "@angular/core";
 	styleUrls:  ['./rankingcard.component.css'],
 	templateUrl: './rankingcard.component.html',
 })
+
+
 export class RankingCard {
     @Input()
-	team!: string;
+	team!: Ranking;
 	@Input()
 	index!: number;
+
 }

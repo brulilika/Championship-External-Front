@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { GeneralTableMatch } from 'src/app/models/generalTableMatch';
 
 @Component({
 	selector: 'match-table',
@@ -16,36 +17,24 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 export class TableMatch {
-	dataSource = ELEMENT_DATA;
-	columnsToDisplay = ['Team1', 'Team2', 'Winner', 'Date'];
+	@Input()
+	tableData!: GeneralTableMatch[];
+	@Input()
+	show!: boolean
+
+	dataSource: GeneralTableMatch[] = [];
+	columnsToDisplay = ['TeamA', 'TeamB', 'Juiz', 'Inicio','Fim', 'Ganhador', 'Status'];
 	columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-	expandedElement!: PeriodicElement | null;
+	expandedElement!: GeneralTableMatch | null;
+	tableDisplay = "inline-table"
+	placeholderDisplay = "none"
+
+	ngOnInit(){
+		this.dataSource = this.tableData;
+		this.tableDisplay = this.show ? "inline-table" : "none"
+		this.placeholderDisplay = this.show ? "none" : "block"
+	}
+	
+	
 }
 
-export interface PeriodicElement {
-	Team1: string;
-	Team2: string;
-	Winner: string;
-	Date: string;
-}
-  
-const ELEMENT_DATA: PeriodicElement[] = [
-	{
-		Team1: "Time A",
-		Team2: 'Time B',
-		Winner: "Time A",
-		Date: '20/03/2023'
-	},
-	{
-		Team1: "Time C",
-		Team2: 'Time D',
-		Winner: "Time D",
-		Date: '21/03/2023'
-	},
-	{
-		Team1: "Time E",
-		Team2: 'Time F',
-		Winner: "Time E",
-		Date: '22/03/2023'
-}
-];

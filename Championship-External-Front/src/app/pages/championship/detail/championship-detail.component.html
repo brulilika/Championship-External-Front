@@ -2,22 +2,22 @@
     <!--General Details-->
     <div>
         <h2>
-            Competição {{title}}
+            Competição {{championshipDetail.title}}
         </h2>
-        <div style="display: flex; padding: 10px;">
+        <div style="display: flex; padding: 10px; ">
             <img style="height: 250px; width: 300px; margin-right: 30px;" src="./../../../../assets/competition-icon.png"/>
             <div>
                 <h2>Descrição da competição</h2>
-                <p>{{"Não foi registrada uma descrição para esta competição"}}</p>
+                <p>{{championshipDetail.description}}</p>
 
                 <h2>Data de início</h2>
-                <p>{{"03/02/2023 23:41"}}</p>
+                <p>{{championshipDetail.startDate}}</p>
 
                 <h2>Data de finalização</h2>
-                <p>{{"-"}}</p>
+                <p>{{championshipDetail.endDate}}</p>
 
                 <h2>Incrições</h2>
-                <p>{{"6"}}</p>
+                <p>{{championshipDetail.subscription}}</p>
             </div>
         </div>
     </div>
@@ -26,17 +26,17 @@
     <div>
         <h2>Ranking Atualizado</h2>
         <div>
-            <ranking-card *ngFor="let team of teamRanking; let i = index" [team]="team" [index] = "i" ></ranking-card>
+            <ranking-card *ngFor="let team of championshipDetail.ranking; let i = index" [team]="team" [index] = "i" ></ranking-card>
         </div>
     </div>
     <hr/>
     <!--Match-->
     <div>
         <h2>Fases x Confrontos</h2>
-        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-            <ngb-panel title="Fase 1">
+        <ngb-accordion *ngFor="let matche of matchslist; let i = index">
+            <ngb-panel title="Fase {{matche.phase}}">
                 <ng-template ngbPanelContent>
-                    <match-table></match-table>
+                    <match-table [tableData]="matche.matches" [show]="matche.show"></match-table>
                 </ng-template>
             </ngb-panel>
         </ngb-accordion>

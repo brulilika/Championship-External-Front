@@ -36,23 +36,8 @@ export class ChampionshiopService {
     }
 
     //Get details about a certain championship - Allowanonimous
-    getById(id:string) : ChampionshipDetailResponse {
-        var championshipDetail : ChampionshipDetailResponse  = {
-            id: '',
-            title: '',
-            description: undefined,
-            startDate: '',
-            endDate: '',
-            subscription: 0,
-            ranking: [],
-            matchs: []
-        };
-        this.httpClient.get<ChampionshipDetailResponse>(`${this.url}external/${id}`,this.httpOptions)
-        .subscribe((champ:ChampionshipDetailResponse)=>{
-            championshipDetail = champ
-        })
-        console.log(championshipDetail)
-        return championshipDetail
+    getById(id:string)  {
+        return this.httpClient.get(`${this.url}external/${id}`)
     }
 
     //GetAll championships that the user is registered

@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { ChampionshiopService } from "src/app/services/championship.service";
 import {ChampionshipDetailResponse} from "src/app/models/championshipDetail.response"
+import { GeneralTableMatch, TableMatches } from "src/app/models/tableMatches";
 
 @Component({
     selector: 'championship-detail-page',
@@ -11,34 +12,48 @@ import {ChampionshipDetailResponse} from "src/app/models/championshipDetail.resp
 
 export class ChampionshipDetailPage{
     id!: string;
-    img!: string;
-    imgSrc!: string;
-    description!: string;
-    initialDate!: string;
-    endDate!: string;
-    subscribed!: string;
-    teamRanking!: string[];
-    title!: string;
+    championshipDetail!: ChampionshipDetailResponse;
+    matchslist : TableMatches[] = []
+
 
     constructor(private router: ActivatedRoute, private championshipService:ChampionshiopService) {
         this.router.paramMap.subscribe(async (params: ParamMap) => {
             this.id = params.get('id')?? "";
         });
-        
     }
 
     async ngOnInit(): Promise<void> {
-        
-        // this.router.paramMap.subscribe(async (params: ParamMap) => {
-        //     this.id = params.get('id')?? "";
-        // });
         await this.loadData()
-        this.teamRanking = ["TIME A", "TIME B", "TIME C", "TIME D", "TIME E","TIME F"];
     }
 
     async loadData(){
-        var response : ChampionshipDetailResponse = await this.championshipService.getById(this.id)
-        this.title = response.title;
-        console.log(this.title )
+        await this.championshipService.getById(this.id).subscribe((data) => { 
+            var response = data as ChampionshipDetailResponse
+            this.championshipDetail = response
+            this.formatMatchList()
+        }) 
+    }
+
+    formatMatchList(){
+        for (let index = 1; index <= this.championshipDetail.totalPhases; index++) {
+            var mats = this.championshipDetail.matchs.filter(f=>f.phaseNumber==index).map(m=>{
+                return {
+                    TeamA: m.teamAName,
+                    TeamB: m.teamBName,
+                    Juiz: m.refereeName,
+                    Inicio: m.startDate,
+                    Fim: "-",
+                    Ganhador: "-",
+                    Status: m.status
+                } as GeneralTableMatch
+            })
+            this.matchslist.push(
+                {
+                    phase: index,
+                    matches: mats,
+                    show: mats.length>0
+                } as TableMatches
+            )
+        }
     }
 }

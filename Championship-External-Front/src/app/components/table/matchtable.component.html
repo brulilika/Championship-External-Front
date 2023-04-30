@@ -1,6 +1,6 @@
-<table mat-table
-       [dataSource]="dataSource" multiTemplateDataRows
-       class="mat-elevation-z8">
+
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8"
+      [ngStyle]="{'display' : tableDisplay}">
   <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
     <th mat-header-cell *matHeaderCellDef> {{column}} </th>
     <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
@@ -36,3 +36,5 @@
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
+
+<h2 [ngStyle]="{'display' : placeholderDisplay}">Não há confrontos para esta fase do campeonato</h2>

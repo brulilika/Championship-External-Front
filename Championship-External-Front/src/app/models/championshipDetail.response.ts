@@ -1,3 +1,5 @@
+import { Ranking } from "./ranking.response"
+
 export interface ChampionshipDetailResponse{
     id: string
     title: string
@@ -5,16 +7,12 @@ export interface ChampionshipDetailResponse{
     startDate: string
     endDate: string
     subscription: number
+    totalPhases : number
+    status: number
     ranking: Ranking[]
     matchs: Match[]
 }
-
-export interface Ranking {
-    idTeam: string
-    name: string
-    wins: number
-}
-  
+ 
 export interface Match {
     idMatch: string
     name: string

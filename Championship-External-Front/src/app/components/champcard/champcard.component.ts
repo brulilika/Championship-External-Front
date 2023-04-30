@@ -11,6 +11,7 @@ export class ChampcardComponent {
  
   @Input()
 	championship!: AllChampionshipResponse;
+  
 
   constructor(private router: Router) { 
     
