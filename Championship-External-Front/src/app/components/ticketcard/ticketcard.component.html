@@ -2,9 +2,14 @@
     <div class="ticket-logo">
         <ng-icon name="heroTicket" size="150"></ng-icon>
     </div>
-    <h3> <ng-content></ng-content> {{item.ChampionshipTitle }}</h3>
-    <span>{{item.ChampionshipDescription}}</span>
+    <h3> <ng-content></ng-content> {{item.champioshipTitle }}</h3>
+    <div style="display: grid; ">
+        <span>{{item.matchTeamA}}</span>
+        <span>VS</span>
+        <span>{{item.matchTeamB}}</span>
+    </div>
     <p>
-        <ngb-progressbar class="progress-bar" type="success" textType="white" [value]="item.SoldPercentage" [showValue]="true"></ngb-progressbar>
+        <ngb-progressbar class="progress-bar" type="info" textType="dark" style="background-color: lightgray;"
+        [value]="item.totalSold" [max]="item.matchTotalTicket" [showValue]="true"></ngb-progressbar>
     </p>
 </div>

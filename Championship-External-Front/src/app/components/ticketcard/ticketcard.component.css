@@ -1,6 +1,6 @@
 .background-card{
     width: 200px;
-    height: 300px; 
+    height: 340px; 
     border-radius: 10px;
     box-sizing: border-box;
     border: 3px solid rgba(111, 191, 194, 0.694);
@@ -19,4 +19,9 @@
 .progress-bar{
     margin-top: 10px;
     background-color:white; 
+}
+
+span{
+    text-align: center;
+    font-size: 20px;
 }

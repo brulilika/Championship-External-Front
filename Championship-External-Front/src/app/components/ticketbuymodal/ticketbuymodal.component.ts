@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { ModalDismissReasons, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
@@ -9,9 +9,21 @@ import { ModalDismissReasons, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
 	templateUrl: './ticketbuymodal.component.html',
 })
 export class TicketBuyModal {
+	@Input()
+	ticket!: {
+		competitionTitle: string,
+		totalTicket: number,
+		soldTickets: number,
+	}
+	available!: number
+
     closeResult = '';
 
-	constructor(public activeModal: NgbActiveModal) { }
+	constructor(public activeModal: NgbActiveModal) {
+		
+	}
 
-	
+	ngOnInit(){
+		this.available = this.ticket.totalTicket - this.ticket.soldTickets
+	}
 }

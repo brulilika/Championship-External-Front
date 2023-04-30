@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { TicketBuyModal } from "src/app/components/ticketbuymodal/ticketbuymodal.component";
 import { AllTicket } from "src/app/models/allTicket.response";
+import { TicketService } from "src/app/services/ticket.service";
 
 @Component({
     selector: 'TicketPage',
@@ -10,48 +11,25 @@ import { AllTicket } from "src/app/models/allTicket.response";
 })
 
 export class TicketPage {
-    items: AllTicket[] = [
-        {
-            ChampionshipTitle: "Competição 1",
-            ChampionshipDescription: "Descricao competição 1",
-            SoldPercentage: 45
-        },
-        {
-            ChampionshipTitle: "Competição 2",
-            ChampionshipDescription: "Descricao competição 2",
-            SoldPercentage: 35
-        },
-        {
-            ChampionshipTitle: "Competição 3",
-            ChampionshipDescription: "Descricao competição 3",
-            SoldPercentage: 75
-        },
-        {
-            ChampionshipTitle: "Competição 4",
-            ChampionshipDescription: "Descricao competição 4",
-            SoldPercentage: 75
-        },
-        {
-            ChampionshipTitle: "Competição 3",
-            ChampionshipDescription: "Descricao competição 5",
-            SoldPercentage: 75
-        },
-        {
-            ChampionshipTitle: "Competição 5",
-            ChampionshipDescription: "Descricao competição 6",
-            SoldPercentage: 75
-        },
+    
+    tickets: AllTicket[] = []
+    constructor(private modalService: NgbModal, private ticketService: TicketService) {
+        this.loadData()
+    }
 
-        {
-            ChampionshipTitle: "Competição 6",
-            ChampionshipDescription: "Descricao competição 6",
-            SoldPercentage: 75
-        },
-    ]
+    async loadData(){
+        await this.ticketService.getAllAvailable().subscribe((data)=>{
+            var response = data as AllTicket[]
+            this.tickets = response
+        })
+    }
 
-    constructor(private modalService: NgbModal) {}
-
-    openModal() {
-        this.modalService.open(TicketBuyModal);
+    openModal(item: AllTicket) {
+        const modalRef = this.modalService.open(TicketBuyModal)
+        modalRef.componentInstance.ticket = {
+            competitionTitle: item.champioshipTitle,
+            totalTicket: item.matchTotalTicket,
+            soldTickets: item.totalSold
+        }
     }
 }
