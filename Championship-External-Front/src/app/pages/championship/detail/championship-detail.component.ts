@@ -3,6 +3,8 @@ import { ActivatedRoute, ParamMap } from "@angular/router";
 import { ChampionshiopService } from "src/app/services/championship.service";
 import {ChampionshipDetailResponse} from "src/app/models/championshipDetail.response"
 import { GeneralTableMatch, TableMatches } from "src/app/models/tableMatches";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { ChampSubsModal } from "src/app/components/champsubsmodal/champsubsmodal.component";
 
 @Component({
     selector: 'championship-detail-page',
@@ -16,7 +18,7 @@ export class ChampionshipDetailPage{
     matchslist : TableMatches[] = []
 
 
-    constructor(private router: ActivatedRoute, private championshipService:ChampionshiopService) {
+    constructor(private modalService: NgbModal, private router: ActivatedRoute, private championshipService:ChampionshiopService) {
         this.router.paramMap.subscribe(async (params: ParamMap) => {
             this.id = params.get('id')?? "";
         });
@@ -32,6 +34,18 @@ export class ChampionshipDetailPage{
             this.championshipDetail = response
             this.formatMatchList()
         }) 
+    }
+
+    openModal() {
+        const modalRef = this.modalService.open(ChampSubsModal)
+        modalRef.componentInstance.championship = {
+            idChampionship: this.championshipDetail.id,
+            championshipTitle: this.championshipDetail.title,
+            subscribed: this.championshipDetail.subscription,
+        }
+        modalRef.result.finally(()=>{
+            this.loadData()
+        })
     }
 
     formatMatchList(){

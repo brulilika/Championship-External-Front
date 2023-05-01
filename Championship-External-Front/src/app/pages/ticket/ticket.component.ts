@@ -29,8 +29,6 @@ export class TicketPage {
         })
     }
 
-    // update: () =>{console.log("PAO")}
-
     openModal(item: AllTicket) {
         const modalRef = this.modalService.open(TicketBuyModal)
         modalRef.componentInstance.ticket = {

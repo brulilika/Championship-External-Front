@@ -1,9 +1,12 @@
 <div class="page">
     <!--General Details-->
     <div>
-        <h2>
-            Competição {{championshipDetail.title}}
-        </h2>
+        <div style="display: flex; margin-top: 30px;">
+            <h2>
+                Competição {{championshipDetail.title}}
+            </h2>
+            <button style="margin-left: 100px;" type="button" class="btn btn-outline-dark" (click)="openModal()">Inscrever-se!</button>
+        </div>
         <div style="display: flex; padding: 10px; ">
             <img style="height: 250px; width: 300px; margin-right: 30px;" src="./../../../../assets/competition-icon.png"/>
             <div>
