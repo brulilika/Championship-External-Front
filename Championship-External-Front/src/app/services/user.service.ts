@@ -9,7 +9,7 @@ import { handleError } from '../utils/handleErrors';
     providedIn: 'root'
 })
 
-export class AuthService {
+export class UserService {
 
     url = 'https://champscoreapi.azurewebsites.net/api/user/';
   
@@ -18,14 +18,13 @@ export class AuthService {
     httpOptions = {
         headers: new HttpHeaders({ 
             'Content-Type': 'application/json',
-            'Authentication' : `Bearer ${localStorage.getItem("auth")}`
+            'Authorization' : `Bearer ${localStorage.getItem("auth")}`
         })
     }
   
     //Find UserById
-    getUserById(id:string) : Observable<UserResponse> {
-        return this.httpClient.get<UserResponse>(`${this.url}/${id}`,this.httpOptions)
-        .pipe(retry(2),catchError(handleError))      
+    getUserById(id:string) {
+        return this.httpClient.get<UserResponse>(`${this.url}${id}`,this.httpOptions)
     }
 
     //Delete Specific User

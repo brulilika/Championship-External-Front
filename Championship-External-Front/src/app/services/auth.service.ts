@@ -12,7 +12,7 @@ import { handleError } from '../utils/handleErrors';
 export class AuthService {
 
   url = 'https://champscoreapi.azurewebsites.net/api/user/';
-  //url = 'http://192.168.0.12:7232/api/user/';
+
   constructor(private httpClient: HttpClient) { }
   
   httpOptions = {
@@ -26,6 +26,7 @@ export class AuthService {
           password: password
       }), this.httpOptions).toPromise()?.then(response=>{
           localStorage.setItem("auth", response?.token??"")
+          window.location.reload()
       }).catch(()=>{
         localStorage.setItem("auth","")
         console.log("Erro ao buscar usuário")

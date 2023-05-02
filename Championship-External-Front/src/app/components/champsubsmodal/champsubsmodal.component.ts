@@ -1,8 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
-import { ModalDismissReasons, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { ChampionshiopService } from "src/app/services/team.service";
-import { TicketService } from "src/app/services/ticket.service";
 
 @Component({
 	selector: 'champ-subs-modal',
@@ -15,8 +14,7 @@ export class ChampSubsModal {
 	@Input()
 	championship!: {
 		idChampionship: string,
-        championshipTitle: string,
-		subscribed: number
+        championshipTitle: string
 	}
 	available!: number
 

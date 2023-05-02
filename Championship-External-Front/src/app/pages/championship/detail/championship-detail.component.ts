@@ -37,15 +37,18 @@ export class ChampionshipDetailPage{
     }
 
     openModal() {
-        const modalRef = this.modalService.open(ChampSubsModal)
-        modalRef.componentInstance.championship = {
-            idChampionship: this.championshipDetail.id,
-            championshipTitle: this.championshipDetail.title,
-            subscribed: this.championshipDetail.subscription,
+        if(this.championshipDetail.subscription< Math.pow(2,this.championshipDetail.totalPhases)){
+            const modalRef = this.modalService.open(ChampSubsModal)
+            modalRef.componentInstance.championship = {
+                idChampionship: this.championshipDetail.id,
+                championshipTitle: this.championshipDetail.title,
+            }
+            modalRef.result.finally(()=>{
+                this.loadData()
+            })
         }
-        modalRef.result.finally(()=>{
-            this.loadData()
-        })
+        else
+            alert("Quantidade limite de inscrições atingida")
     }
 
     formatMatchList(){

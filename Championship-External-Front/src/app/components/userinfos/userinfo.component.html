@@ -1,0 +1,16 @@
+<div class="login-card">
+    <img class="icon-login" src="./../../../assets/userimage.png" alt="LogoTemplate">
+    <h2 style="text-align: center; font-size: 30px; margin-top: 20px;" id="name">{{this.userInfo.name}}</h2>
+    
+    <div style="margin-top: 10px;">
+        <div style="margin: 10px 20px 0px 5px;">
+            <label style="color: white; font-size: 15px;">Idade</label>
+            <input style="margin-left: 10px;" type="text" id="age" value={{this.userInfo.age}} readonly="true"/>
+        </div>
+        <div style="margin: 10px 20px 0px 5px;">
+            <label style="color: white; font-size: 15px;">Email</label>
+            <input style="margin-left: 10px;" type="text" id="email" readonly="true" value={{this.userInfo.email}}/>
+        </div>
+    </div>
+    <button (click)="logout()">Logout</button>
+</div>

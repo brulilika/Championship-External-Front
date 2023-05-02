@@ -25,6 +25,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChampionshiopService } from './services/championship.service';
 import { RankingCard } from './components/rankingcard/rankingcard.component';
 import { LoginPage } from './pages/login/login.component';
+import { UserInfo } from './components/userinfos/userinfo.component';
+import { LoginForm } from './components/loginform/loginform.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -35,6 +37,8 @@ import { LoginPage } from './pages/login/login.component';
         LoginPage,
         ChampcardComponent,
         ChampionshipDetailPage,
+        UserInfo,
+        LoginForm,
         TableMatch
     ],
     providers: [ChampionshiopService],

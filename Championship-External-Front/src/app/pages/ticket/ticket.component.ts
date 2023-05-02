@@ -14,9 +14,6 @@ export class TicketPage {
     
     tickets: AllTicket[] = []
 
-    @Input()
-    update!: boolean
-
     constructor(private modalService: NgbModal, private ticketService: TicketService) {
         this.loadData()
     }
