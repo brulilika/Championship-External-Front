@@ -1,32 +1,38 @@
 <div class="page">
     <!--General Details-->
-    <div>
-        <div style="display: flex; margin-top: 30px;">
+    <div class="description-card">
+        <div class="description-header">
             <h2>
                 Competição {{championshipDetail.title}}
             </h2>
-            <button style="margin-left: 100px;" type="button" class="btn btn-outline-dark" (click)="openModal()">Inscrever-se!</button>
+            <button type="button" class="btn btn-outline-light subs-button" (click)="openModal()">Inscrever-se!</button>
         </div>
-        <div style="display: flex; padding: 10px; ">
-            <img style="height: 250px; width: 300px; margin-right: 30px;" src="./../../../../assets/competition-icon.png"/>
-            <div>
+        <div class="description-content">
+            <img class="championship-img" src="./../../../../assets/competition-icon.png"/>
+            <div style="padding: 30px;">
                 <h2>Descrição da competição</h2>
                 <p>{{championshipDetail.description}}</p>
 
-                <h2>Data de início</h2>
-                <p>{{championshipDetail.startDate}}</p>
-
-                <h2>Data de finalização</h2>
-                <p>{{championshipDetail.endDate}}</p>
+                <div style="display:flex; justify-content: space-between;">
+                    <div style="display:block;">
+                        <h2>Data de início</h2>
+                        <p>{{championshipDetail.startDate}}</p>
+                    </div>
+                    <div style="display:block;">
+                        <h2>Data de finalização</h2>
+                        <p>{{championshipDetail.endDate}}</p>
+                    </div>
+                </div>
 
                 <h2>Incrições</h2>
                 <p>{{championshipDetail.subscription}}</p>
             </div>
         </div>
     </div>
+
     <hr/>
     <!--Ranking-->
-    <div>
+    <div class="description-card">
         <h2>Ranking Atualizado</h2>
         <div>
             <ranking-card *ngFor="let team of championshipDetail.ranking; let i = index" [team]="team" [index] = "i" ></ranking-card>
@@ -34,7 +40,7 @@
     </div>
     <hr/>
     <!--Match-->
-    <div>
+    <div class="description-card">
         <h2>Fases x Confrontos</h2>
         <ngb-accordion *ngFor="let matche of matchslist; let i = index">
             <ngb-panel title="Fase {{matche.phase}}">
