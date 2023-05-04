@@ -4,4 +4,5 @@ export type AllChampionshipResponse = {
     description: string
     startDate: string,
     status :number
+    statuscolor:string
 }

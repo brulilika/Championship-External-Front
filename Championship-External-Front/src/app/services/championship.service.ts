@@ -28,6 +28,7 @@ export class ChampionshiopService {
         this.httpClient.get<AllChampionshipResponse[]>(`${this.url}external`,this.httpOptions)
         .subscribe((champs:AllChampionshipResponse[])=>{
             champs.map((champ)=>{
+                champ.statuscolor = this.setStatusColor(champ.status)
                 championships.push(champ)
             })
         })
@@ -56,6 +57,19 @@ export class ChampionshiopService {
     register(id:string) : Observable<object> {
         return this.httpClient.post(`${this.url}/${id}`, this.httpOptions)
         .pipe(retry(2),catchError(handleError))
+    }
+
+    setStatusColor(status : number):string{
+        switch(status){
+            case 0:
+                return "#54B4D3"
+            case 1:
+                return "#E4A11B"
+            case 2:
+                return "#DC4C64"
+            default :
+                return "#54B4D3"
+        }
     }
 }
 

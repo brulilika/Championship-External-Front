@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute, ParamMap } from "@angular/router";
+import { ActivatedRoute, ParamMap, Router } from "@angular/router";
 import { ChampionshiopService } from "src/app/services/championship.service";
 import {ChampionshipDetailResponse} from "src/app/models/championshipDetail.response"
 import { GeneralTableMatch, TableMatches } from "src/app/models/tableMatches";
@@ -16,9 +16,9 @@ export class ChampionshipDetailPage{
     id!: string;
     championshipDetail!: ChampionshipDetailResponse;
     matchslist : TableMatches[] = []
+    subsButton : string = "block";
 
-
-    constructor(private modalService: NgbModal, private router: ActivatedRoute, private championshipService:ChampionshiopService) {
+    constructor(private modalService: NgbModal,private route: Router, private router: ActivatedRoute, private championshipService:ChampionshiopService) {
         this.router.paramMap.subscribe(async (params: ParamMap) => {
             this.id = params.get('id')?? "";
         });
@@ -32,23 +32,34 @@ export class ChampionshipDetailPage{
         await this.championshipService.getById(this.id).subscribe((data) => { 
             var response = data as ChampionshipDetailResponse
             this.championshipDetail = response
+            this.subsButton = response.status!= 0 ? "none" : "block";
             this.formatMatchList()
         }) 
     }
 
     openModal() {
-        if(this.championshipDetail.subscription< Math.pow(2,this.championshipDetail.totalPhases)){
-            const modalRef = this.modalService.open(ChampSubsModal)
-            modalRef.componentInstance.championship = {
-                idChampionship: this.championshipDetail.id,
-                championshipTitle: this.championshipDetail.title,
+        var login = localStorage.getItem("auth")
+		
+		if(login && login!=""){
+
+            if(this.championshipDetail.subscription< Math.pow(2,this.championshipDetail.totalPhases)){
+                const modalRef = this.modalService.open(ChampSubsModal)
+                modalRef.componentInstance.championship = {
+                    idChampionship: this.championshipDetail.id,
+                    championshipTitle: this.championshipDetail.title,
+                }
+                modalRef.result.finally(()=>{
+                    this.loadData()
+                })
             }
-            modalRef.result.finally(()=>{
-                this.loadData()
-            })
-        }
-        else
+            else
             alert("Quantidade limite de inscrições atingida")
+        }
+        else{
+            alert("É necessário esta logado para inscrever-se em um campeonato")
+			
+			this.route.navigate([`login`])
+        }
     }
 
     formatMatchList(){

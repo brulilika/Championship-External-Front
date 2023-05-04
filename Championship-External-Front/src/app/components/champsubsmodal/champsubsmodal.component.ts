@@ -34,7 +34,7 @@ export class ChampSubsModal {
 	subscribe(){
 		var login = localStorage.getItem("auth")
 		
-		if(login){
+		if(login && login!=""){
 			this.championshipService.subscribe({name:(<HTMLInputElement>document.getElementById("name")).value, idChampionship: this.championship.idChampionship}).subscribe(data =>{
 				var response = data as boolean
 				if(response){

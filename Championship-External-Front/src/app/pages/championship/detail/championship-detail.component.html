@@ -5,7 +5,7 @@
             <h2>
                 Competição {{championshipDetail.title}}
             </h2>
-            <button type="button" class="btn btn-outline-light subs-button" (click)="openModal()">Inscrever-se!</button>
+            <button [ngStyle]="{'display' : this.subsButton}" type="button" class="btn btn-outline-light subs-button" (click)="openModal()">Inscrever-se!</button>
         </div>
         <div class="description-content">
             <img class="championship-img" src="./../../../../assets/competition-icon.png"/>

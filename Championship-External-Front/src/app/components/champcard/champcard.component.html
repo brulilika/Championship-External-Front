@@ -1,4 +1,4 @@
-<div class="background-card" (click)="goToDetail(championship.id)">
+<div [ngStyle]="{'border-color' : this.championship.statuscolor}" class="background-card" (click)="goToDetail(championship.id)">
     <img class="card-image" alt src="./../../../assets/competition-icon.png"/>
     <h3> <ng-content></ng-content> {{championship.title}}</h3>
     <div class="description-card">
