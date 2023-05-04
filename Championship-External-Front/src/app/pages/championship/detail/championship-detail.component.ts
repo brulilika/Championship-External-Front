@@ -59,9 +59,9 @@ export class ChampionshipDetailPage{
                     TeamB: m.teamBName,
                     Juiz: m.refereeName,
                     Inicio: m.startDate,
-                    Fim: "-",
-                    Ganhador: "-",
-                    Status: m.status
+                    Fim: m.finishDate,
+                    Ganhador: m.winnnerName,
+                    Status: m.status == 0 ? "Criado": m.status == 1? "Em andamento": "Finalizado"
                 } as GeneralTableMatch
             })
             this.matchslist.push(

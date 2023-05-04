@@ -5,5 +5,5 @@ export interface GeneralTableMatch{
     Ganhador: string,
     Inicio: string
     Fim: string,
-    Status : number
+    Status : string
 }

@@ -18,6 +18,7 @@ export interface Match {
     name: string
     phaseNumber: number
     startDate: string
+    finishDate: string
     totalTickets: number
     soldTickets: number
     refereeName: string
@@ -25,5 +26,7 @@ export interface Match {
     teamAName: string
     idTeamB: string
     teamBName: string
+    idWinner: string
+    winnnerName: string
     status: number
 }
